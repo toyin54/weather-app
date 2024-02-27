@@ -74,18 +74,18 @@ interface WeatherData {
 export default function Home() {
   const [place, setPlace] = useAtom(placeAtom);
   const [_, setLoadingCity] = useAtom(loadingCityAtom);
-
+  const apiKey = process.env.NEXT_PUBLIC_WEATHER_KEY
   const { isLoading, error, data  , refetch} = useQuery<WeatherData>(
     'repoData',
     async () =>
     {
       const {data} = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=f090eebba96894fd5850685df998abc1`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${apiKey}`
       );
       return data;
     }
   )
-
+console.log()
   useEffect(() => {
     refetch()
 
@@ -93,7 +93,7 @@ export default function Home() {
   console.log('data',data?.city)
 
   const firstData = data?.list[0]
-
+data?.list
   const uniqueDates = [
     ...new Set(
       data?.list.map(
@@ -126,7 +126,7 @@ export default function Home() {
    
     //
 
-    <div className="flex flex-col gap-4 bg-gray-200 min-h-screen">
+    <div className="flex flex-col gap-4 bg-red-400 min-h-screen">
       <Navbar location={data?.city.name}/>
       <main className="px-3 max-w-7xl mx-auto flex flex-col gap-9  w-full  pb-10 pt-4 ">
         {/**Todays data */}
@@ -136,7 +136,7 @@ export default function Home() {
               <p>
                 {format(parseISO(firstData?.dt_txt ?? ''), 'EEEE')}
               </p>
-              <p className="text-lg text-red-500">
+              <p className="text-lg text-blue-500">
                 {format(parseISO(firstData?.dt_txt ?? ''), 'dd:MM:yyyy')}
               </p>
             </h2> 
