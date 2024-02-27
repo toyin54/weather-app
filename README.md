@@ -8,7 +8,7 @@ Here is my simple weather app. It is powered by Next.js 14, TypeScript,Tailwind 
 
 ## Features
 <ul>
-    <li>Hello</l1>
+    <li><b>Current Weather Condiitons</b>: You get the curent weather currendions such as temperaure and the expected weather conditions for every 3hrs</l1>
 </ul>
 
 ## Getting Started
