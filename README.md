@@ -7,9 +7,9 @@ Here is my simple weather app. It is powered by Next.js 14, TypeScript,Tailwind 
 
 
 ## Features
-<li>
-    <ul>Hello</ul>
-</li>
+<ul>
+    <li>Hello</l1>
+</ul>
 
 ## Getting Started
 
